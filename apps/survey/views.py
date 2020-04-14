@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 
@@ -8,12 +8,18 @@ def index(request):
 def result(request):
     if request.method == 'POST':
         print(request.POST)
-        context = {
-            "name":request.POST["name"],
-            "location":request.POST["location"],
-            "language":request.POST["language"],
-            "comment":request.POST["comment"],
 
-        }
-        return render(request, 'result.html', context)
+        request.session['name'] = request.POST['name']
+        request.session['location'] = request.POST['location']
+        request.session['language'] = request.POST['language']
+        request.session['comment'] = request.POST['comment']
+        
 
+        return redirect('displayResult/')
+
+    elif request.method == 'GET':
+        return redirect('displayResult/')
+
+def displayResult(request):
+
+    return render(request, 'result.html')

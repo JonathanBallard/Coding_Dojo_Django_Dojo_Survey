@@ -26,10 +26,10 @@
 </head>
 <body>
 
-    <h1>{{name}}</h1>
-    <h4>{{location}}</h4>
-    <h4>{{language}}</h4>
-    <p>{{comment}}</p>
+    <h1>{{ request.session.name }}</h1>
+    <h4>{{ request.session.location }}</h4>
+    <h4>{{ request.session.language }}</h4>
+    <p>{{ request.session.comment }}</p>
 
 
 </body>
