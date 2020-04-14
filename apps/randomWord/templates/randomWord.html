@@ -27,8 +27,13 @@
 <body>
 
 Random Word: {{ request.session.word }}
-
+<br>
 Counter: {{ request.session.counter }}
+<br>
+
+    <form action="reset/">
+        <input type="submit" value="Reset Counter!">
+    </form>
 
 </body>
 </html>

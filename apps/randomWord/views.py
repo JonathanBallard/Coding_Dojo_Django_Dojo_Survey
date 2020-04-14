@@ -15,4 +15,8 @@ def randomWord(request):
     return render(request, 'randomWord.html')
 
 def reset(request):
-    pass
+    if 'counter' in request.session:
+        request.session['counter'] = 0
+
+    return redirect('/randomWord/word/')
+
